@@ -1,0 +1,10 @@
+Check if an array is sorted
+Move zero to end
+Move zero to beginning
+Second Largest
+Remove Duplicates from Array
+Missing numer in a sequence
+Count Frequency of Elements
+Intersection of Two Array
+Find the pair with a given Sum
+Remove Prime Number

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Hello</h1>
+  <button id="btn">click</button>
+
+
+  <script>
+  function attach(){
+    let count = 1; 
+   document.getElementById('btn').addEventListener('click',()=>{
+    console.log(`button clicked: ${count}`);
+    count++;
+   })
+  }
+  attach();
+  </script>
+</body>
+</html>

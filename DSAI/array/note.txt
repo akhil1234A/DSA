@@ -8,3 +8,4 @@ Count Frequency of Elements
 Intersection of Two Array
 Find the pair with a given Sum
 Remove Prime Number
+1389. Create Target Array in the Given Order

@@ -65,7 +65,7 @@ class PriorityQueue {
   }
 }
 
-// Example graph as an adjacency list
+// Example graph as an adjacency list 
 const graph = {
   A: { B: 1, C: 4 },
   B: { A: 1, C: 2, D: 6 },

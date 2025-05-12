@@ -1,5 +1,15 @@
-Check if a string is palindrome
-Sum of Digits
-Power of a number
+Factorial of a number           [x]
+Fibonacci number (nth)          [x]
+Sum of first N natural numbers  [x]
 Reverse a string
-Generate all subset of a string
+Check if a string is a palindrome
+Print numbers from 1 to N
+Print numbers from N to 1
+Power of a number (a^b)
+Count digits of a number
+Generate all subsequences of a string
+Generate all subsets of an array
+Subset sum problem 
+Permutations of a string/array
+Binary Search using recursion
+Sum of digits of a number

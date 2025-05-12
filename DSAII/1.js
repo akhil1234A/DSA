@@ -1,80 +1,78 @@
-class Node{
-    constructor(data){
-        this.value = data;
-        this.next = null; 
+
+//Adjacency List
+//Add Vertex
+//Add Edge
+//BFS
+//DFS
+
+class Graph {
+  constructor(){
+    this.adjacencyList = {}
+  }
+
+  addVertex(vertex){
+    if(!this.adjacencyList[vertex]){
+      this.adjacencyList[vertex] = [];
     }
+  }
+
+  addEdge(vertex1, vertex2){
+    if(!this.adjacencyList[vertex1]) this.addVertex(vertex1);
+    if(!this.adjacencyList[vertex2]) this.addVertex(vertex2);
+    this.adjacencyList[vertex1].push(vertex2);
+  }
+
+  bfs(start){
+    let queue = [start];
+    let result = [];
+    let set = new Set();
+    while(queue.length>0){
+      let temp = queue.shift();
+      if(set.has(temp)) continue;
+      result.push(temp);
+      set.add(temp);
+      for(let v of this.adjacencyList[temp]){
+        queue.push(v);
+      }
+    }
+    console.log(result)
+  }
+
+  dfs(start){
+    let result = [];
+    let set = new Set();
+
+    const dfsHelper = (vertex)=>{
+
+      result.push(vertex);
+      set.add(vertex);
+
+      for(let v of this.adjacencyList[vertex]){
+        if(!set.has(v)){
+          dfsHelper(v);
+        }
+      }
+
+    }
+
+    dfsHelper(start);
+    console.log(result)
+  }
+
+  display(){
+    for(let vertex in this.adjacencyList){
+      console.log(`${vertex} -> ${this.adjacencyList[vertex].join(',')}`);
+    }
+  }
+
 }
 
-class LinkedList{
-    constructor(){
-        this.head = null;
-        this.tail = null;
-    }
-
-    append(data){
-        const node = new Node(data);
-        if(!this.head){
-            this.head = this.tail = node;
-            return; 
-        }
-        this.tail.next = node;
-        this.tail = node; 
-    }
-
-    delete(data){
-        let current = this.head;
-
-        if(!current){
-            console.log("list is empty");
-            return; 
-        }
-        if(current.value == data){
-            this.head = this.tail = current.next; 
-            return; 
-        }
-        while(current.next){
-            if(current.next.value == data){
-                current.next = current.next.next; 
-                return; 
-            }
-            current = current.next;
-        }
-
-        return false; 
-    }
-
-    middle(){
-        let current = this.head; 
-        let prev = this.head; 
-        let slow = current.next; 
-        let fast = current.next.next; 
-
-        while(fast && fast.next){
-            prev = slow; 
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        prev.next = slow.next;
-    }
-
-
-    display(){
-        let current = this.head; 
-        let result = [];
-        while(current){
-            result.push(current.value);
-            current = current.next; 
-        }
-        console.log(result.join('->'));
-    }
-}
-
-const list = new LinkedList();
-list.append(4);
-list.append(6);
-list.append(7);
-list.append(8);
-list.append(9);
-list.display();
-list.middle();
-list.display()
+const graph = new Graph();
+graph.addEdge('A','B');
+graph.addEdge('A','C');
+graph.addEdge('B','D');
+graph.addEdge('B','E');
+graph.addEdge('E','F');
+graph.display();
+graph.bfs("A");
+graph.dfs("A");

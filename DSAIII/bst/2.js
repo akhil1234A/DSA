@@ -43,7 +43,7 @@ class BinarySearchTree{
 
   largest(){
     let current = this.root;
-   - let largest = this.root.value;  
+    let largest = this.root.value;  
     while(current.right){
       largest = current.right.value;
       current = current.right; 
